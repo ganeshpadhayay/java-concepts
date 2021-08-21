@@ -2,7 +2,7 @@ package com.example.ganesh.designpatterns.singleton.serialization;
 
 import java.io.Serializable;
 
-public class SingletonSerialization implements Serializable {
+public class SingletonSerialization implements Serializable, Cloneable {
 
     //This is required in cases where your class structure changes between serialization and deserialization.
     // A changed class structure will cause the JVM to give an exception in the de-serializing process.
@@ -32,4 +32,8 @@ public class SingletonSerialization implements Serializable {
         return instance;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return instance;
+    }
 }
